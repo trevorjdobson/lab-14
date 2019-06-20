@@ -30,8 +30,8 @@ function showCart() {
   var tBody = document.getElementsByTagName('tbody')[0];
   console.log(tBody);
   // DONE: Iterate over the items in the cart
-  console.log('in loop', cart.items.items);
-  for(var i = 0; i < cart.items.items.length; i++){
+  console.log('in loop', cart.items);
+  for(var i = 0; i < cart.items.length; i++){
     
     // DONE: Create a TR
     var trEl = document.createElement('tr');
@@ -39,14 +39,15 @@ function showCart() {
     var tDEldelete = document.createElement('td');
     var tDElproduct = document.createElement('td');
     var tDElquantity = document.createElement('td');
+    tDEldelete.setAttribute('id', i);
     tDEldelete.textContent = 'delete';
     trEl.appendChild(tDEldelete);
     tDEldelete.addEventListener('click', removeItemFromCart);
 
-    tDElproduct.textContent = cart.items.items[i].product;
+    tDElproduct.textContent = cart.items[i].product;
     trEl.appendChild(tDElproduct);
 
-    tDElquantity.textContent = cart.items.items[i].quantity;
+    tDElquantity.textContent = cart.items[i].quantity;
     trEl.appendChild(tDElquantity);
 
     // DONE: Add the TR to the TBODY and each of the TD's to the TR
@@ -57,7 +58,7 @@ function showCart() {
 function removeItemFromCart(event) {
 
   // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
-  console.log('delete?')
+  console.log('delete?', event.target.id);
   // TODO: Save the cart back to local storage
   // TODO: Re-draw the cart table
 

@@ -13,15 +13,9 @@ Cart.prototype.addItem = function(product, quantity) {
 };
 
 Cart.prototype.saveToLocalStorage = function() {
-  console.log('this',this);
-  var newCart;
-  if(localStorage.cart){
-    newCart = JSON.parse(localStorage.getItem('cart'));
-  }
-  newCart.items.push(this);
-  console.log('newcart',newCart.items);
-  // TODONE: Fill in this instance method to save the contents of the cart to localStorage
-  localStorage.setItem('cart',JSON.stringify(this));
+  console.log('this',this.items);
+  localStorage.setItem('cart',JSON.stringify(this.items));
+
 };
 
 Cart.prototype.removeItem = function(index) {
