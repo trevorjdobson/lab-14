@@ -22,7 +22,7 @@ Cart.prototype.removeItem = function(index) {
   // TODONE?: Fill in this instance method to remove one item from the cart.
   // Note: You will have to decide what kind of parameter to pass in here!
   var newList = this.items;
-  newList.splice(index,0);
+  newList.splice(index,1);
 };
 
 var CartItem = function(product, quantity) {
